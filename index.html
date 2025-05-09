@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Food Insecurity Research Project</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" integrity="sha512-dfX5uYVXzyU8+KHqj8bjo7UkOdg18PaOtpa48djpNbZHwExddghZ+ZmzWT06R5v6NSk3ZUfsH6FNEDepLx9hPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Staatliches&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" class="scrollspy-example">
+
+    <!-- nav -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Food Insecurity Research</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#section1">Introduction</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section2">Problem Overview</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section3">Methodology</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section4">Key Findings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section5">Charts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section6">Interactive Data</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section7">Interview</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section8">Conclusions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section9">Resources</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Sections -->
+    <main class="container-fluid p-0">
+
+        <!-- section 1 intro -->
+        <section id="section1" class="bg-green py-5 justify-content-center">
+            <div class="container">
+                <div class="row justify-content-center section-title">
+                    <div class="col-auto mb-4">
+                        <div class="title"><span class="material-icons">info</span> Food Insecurity in the U.S.</div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="card bg-grey p-4 h-100">
+                            <h5><i class="material-icons small">warning</i> Context</h5>
+                            <p class="paragraph mb-0">
+                                Examines causes and impacts of food insecurity across the U.S. with different demographics.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="card bg-grey p-4 h-100">
+                            <h5><i class="material-icons small">help</i> Need</h5>
+                            <p class="paragraph mb-0">
+                                Integrates analysis of USDA Food Access Research Atlas and Feeding America’s Map the Meal Gap datasets.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="card bg-grey p-4 h-100">
+                            <h5><i class="material-icons small">build</i> Task</h5>
+                            <p class="paragraph mb-0">
+                                Employs predictive modeling (logistic regression and deep learning) for food insecurity risk.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="card bg-grey p-4 h-100">
+                            <h5><i class="material-icons small">dashboard</i> Overview</h5>
+                            <p class="paragraph mb-0">
+                                Incorporates qualitative insights from interviews with social work experts and local food bank practitioners.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="card bg-grey p-4 h-100">
+                            <h5><i class="material-icons small">dashboard</i> Overview</h5>
+                            <p class="paragraph mb-0">
+                                Present policy recommendations and highlight community-led solutions like mobile markets and SNAP expansion.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+<!--                <div class="row justify-content-center text-center">-->
+<!--                    <div class="col-lg-8">-->
+<!--                        <div class="title tlt display-3" data-in="fadeInDown">Understanding Food Insecurity</div>-->
+<!--                        <ul class="mt-5 fs-4" style="line-height:2;">-->
+<!--                            <li class="mb-4">Examines prevalence, causes, and impacts of food insecurity across U.S. regions and demographics</li>-->
+<!--                            <li class="mb-4">Integrates quantitative analysis of USDA Food Access Research Atlas and Feeding America’s Map the Meal Gap datasets</li>-->
+<!--                            <li class="mb-4">Employs predictive modeling (logistic regression and deep learning) to forecast county-level food insecurity risk</li>-->
+<!--                            <li class="mb-4">Incorporates qualitative insights from interviews with social work experts and local food bank practitioners</li>-->
+<!--                            <li class="mb-4">Presents actionable policy recommendations and highlights community-led solutions like mobile markets and SNAP expansion</li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </section>
+
+
+        <!-- section 2 prob overview -->
+        <section id="section2" class="bg-grey justify-content-center">
+            <div class="container">
+                <div class="row justify-content-center section-title">
+                    <div class="col-auto">
+                        <div class="title"><span class="material-icons">warning</span> Problem Overview</div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="card bg-green p-4 h-100">
+                            <h5><i class="material-icons small">warning</i> Context</h5>
+                            <p class="paragraph mb-0">
+                                Food insecurity means not having reliable access to enough food. It affects millions of Americans and causes health, education, and financial issues. Knowing where food insecurity will happen can help stop it before it gets worse.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="card bg-green p-4 h-100">
+                            <h5><i class="material-icons small">help</i> Need</h5>
+                            <p class="paragraph mb-0">
+                                Most research looks at food insecurity after it happens, not before. We want to use data to predict future food insecurity at the county level. This helps fill a gap in current research and makes it more useful for real-world help.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="card bg-green p-4 h-100">
+                            <h5><i class="material-icons small">build</i> Task</h5>
+                            <p class="paragraph mb-0">
+                                We collected data on food insecurity and related factors like poverty and unemployment. We used machine learning to try and predict future food insecurity. We interviewed a professor who specializes in social work, as well as local food bank workers to get real-world insight on this crisis.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="card bg-green p-4 h-100">
+                            <h5><i class="material-icons small">dashboard</i> Overview</h5>
+                            <p class="paragraph mb-0">
+                                First, we will review and discuss past research and background information on food insecurity as a whole. Then, we will explain our data, methods, and models that we used for this project. Next, we will show our results and explain what they mean. Finally, we will discuss what this could mean for future policy and research in regards to food insecurity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- section 3 methodology -->
+        <section id="section3" class="bg-green justify-content-center">
+            <div class="container">
+                <div class="row justify-content-center section-title">
+                    <div class="col-auto">
+                        <div class="title"><span class="material-icons">science</span> Methodology</div>
+                        <p class="paragraph text-center mt-3">
+                            Our research methodology combines quantitative data analysis with qualitative insights from interviews and field research.
+                        </p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4 col-lg-4">
+                        <div class="card bg-grey p-4 h-100">
+                            <h5><i class="material-icons small">data_explorer</i> Data Sources</h5>
+                            <ul class="mb-0">
+                                <li>Used Food Access Research Atlas by USDA Economic Research Service</li>
+                                <li>Sources: 2010 Census, ACS (2014–2018), SNAP‑authorized store data (STARS & TDLinx)</li>
+                                <li>Grid‑based spatial allocation maps food access at census‑tract level</li>
+                                <li>Computes supermarket distances (½ mile urban, 10–20 miles rural) and vehicle access metrics</li>
+                                <li>Limitations: uses older census/ACS estimates, straight‑line distances, excludes informal food sources</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="card bg-grey p-4 h-100">
+                            <h5><i class="material-icons small">map</i> Map the Meal Gap & Preprocessing</h5>
+                            <ul class="mb-0">
+                                <li>Used Feeding America’s Map the Meal Gap dataset covering 3,144 counties</li>
+                                <li>Data from CPS, ACS, BLS, and NielsenIQ under USDA Thrifty Food Plan guidelines</li>
+                                <li>Tracks race/ethnicity, income, SNAP eligibility, child insecurity, and meal cost</li>
+                                <li>Cleaned & merged: standardized county names; limited years to 2014–2022</li>
+                                <li>Reshaped datasets: extracted “Year” column and aligned by location</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="card bg-grey p-4 h-100">
+                            <h5><i class="material-icons small">analytics</i> Modeling Techniques</h5>
+                            <ul class="mb-0">
+                                <li>Logistic regression to predict high food insecurity (FI_High)</li>
+                                <li>Predictors: poverty, unemployment, income level, SNAP thresholds, race, child insecurity</li>
+                                <li>Converted NaNs to “missing”, standardized types, removed no‑variation columns</li>
+                                <li>Evaluation via prediction tables and confusion matrix</li>
+                                <li>Final model achieved 93% accuracy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- section 4 key findings -->
+        <section id="section4" class="bg-grey justify-content-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+                        <div class="title"><span class="material-icons">insights</span> Key Findings</div>
+                    </div>
+                    <div class="row-md-7">
+                        <div class="card bg-green p-3 mb-3">
+                            <h5><i class="material-icons small">trending_up</i> Rising Costs</h5>
+                            <p class="paragraph mb-0">Average cost per meal increased by over 30% from 2019 to 2022, making food less affordable for vulnerable populations.</p>
+                        </div>
+                        <div class="card bg-green p-3 mb-3">
+                            <h5><i class="material-icons small">child_care</i> Child Impact</h5>
+                            <p class="paragraph mb-0">Child food insecurity rates exceed 30% in many counties, with the majority of food insecure children living in households below 185% of the federal poverty line.</p>
+                        </div>
+                        <div class="card bg-green p-3 mb-3">
+                            <h5><i class="material-icons small">diversity_3</i> Racial Disparities</h5>
+                            <p class="paragraph mb-0">Food insecurity rates among Black and Hispanic populations are consistently higher than among white populations across nearly all counties studied.</p>
+                        </div>
+                        <div class="card bg-green p-3 mb-3">
+                            <h5><i class="material-icons small">coronavirus</i> Pandemic Effect</h5>
+                            <p class="paragraph mb-0">While some areas saw temporary improvements in 2021, most counties experienced significant increases in food insecurity by 2022, exceeding pre-pandemic levels.</p>
+                        </div>
+                        <div class="card bg-green p-3 mb-3">
+                            <h5><i class="material-icons small">developer_board</i> Deep Learning Analysis</h5>
+                            <p class="paragraph mb-0">The deep learning approach utilized fastai's tabular model framework, preprocessing the dataset using TabularPandas with transformations such as Categorify, FillMissing, and Normalize. A logistic regression model was also tested using statsmodels' Logit to predict high food insecurity (FI_High), incorporating predictors like racial and ethnic group insecurity rates, SNAP thresholds, and child food insecurity. Despite using MLE, the logistic model underperformed. The deep learning model, trained using a 4-layer neural network (400-200-100) with a learning rate finder between 0.03 and 0.01 and a batch size of 256, achieved up to 93% accuracy.</p>
+                        </div>
+
+                        <div class="card bg-green p-3">
+                            <h5><i class="material-icons small">insert_chart</i> Simplified Model Summary</h5>
+                            <p class="paragraph mb-0">We applied a deep learning model to predict which households are most at risk of high food insecurity. The model used a large dataset and was trained to recognize patterns based on factors like race, income level, and child food insecurity. After training, it reached a prediction accuracy of 93%.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- section 5 charts -->
+        <section id="section5" class="bg-green justify-content-center">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card shadow">
+                            <div class="card-header bg-grey">
+                                <h5 class="mb-0">Food Insecurity by Year (2019-2022)</h5>
+                            </div>
+                            <div class="card-body">
+                                <div style="position: relative; width: 100%; height: 500px;">
+                                    <canvas id="yearTrendChart" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card shadow">
+                            <div class="card-header bg-grey">
+                                <h5 class="mb-0">Demographic Comparison</h5>
+                            </div>
+                            <div class="card-body">
+                                <div style="position: relative; width: 100%; height: 500px;">
+                                    <canvas id="demographicChart" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card shadow">
+                            <div class="card-header bg-grey">
+                                <h5 class="mb-0">Child vs. Overall Food Insecurity</h5>
+                            </div>
+                            <div class="card-body">
+                                <div style="position: relative; width: 100%; height: 500px;">
+                                    <canvas id="childVsOverallChart" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card shadow">
+                            <div class="card-header bg-grey">
+                                <h5 class="mb-0">Cost Per Meal Trend</h5>
+                            </div>
+                            <div class="card-body">
+                                <div style="position: relative; width: 100%; height: 500px;">
+                                    <canvas id="costPerMealChart" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- section 6 maps -->
+        <section id="section6" class="bg-grey justify-content-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="title text-center"><span class="material-icons">data_exploration</span> Interactive Data Explorer</div>
+                        <p class="paragraph text-center mt-3">Explore food insecurity data across different states, years, and demographics.</p>
+
+                        <div class="card shadow mt-4">
+                            <div class="card-header bg-green">
+                                <div class="row align-items-center">
+                                    <div class="col-md-8">
+                                        <h5 class="mb-0">Food Insecurity Data Visualization</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-4">
+                                    <div class="col-md-3 mb-3 mb-md-0">
+                                        <label for="stateSelector" class="form-label">Select Display Mode:</label>
+                                        <select class="form-select" id="stateSelector">
+                                            <option value="all" selected>All States</option>
+                                            <option value="top10">Top 10 States</option>
+                                            <option value="bottom10">Bottom 10 States</option>
+                                            <option value="custom">Custom Selection</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 mb-3 mb-md-0">
+                                        <label for="yearSelector" class="form-label">Select Year:</label>
+                                        <select class="form-select" id="yearSelector">
+                                            <option value="all" selected>All Years</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 mb-3 mb-md-0">
+                                        <label for="metricSelector" class="form-label">Select Metric:</label>
+                                        <select class="form-select" id="metricSelector">
+                                            <option value="overall" selected>Overall Food Insecurity Rate</option>
+                                            <option value="child">Child Food Insecurity Rate</option>
+                                            <option value="black">Food Insecurity Rate - Black</option>
+                                            <option value="hispanic">Food Insecurity Rate - Hispanic</option>
+                                            <option value="white">Food Insecurity Rate - White</option>
+                                            <option value="cost">Cost Per Meal</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 mb-3 mb-md-0">
+                                        <label for="sortOrder" class="form-label">Sort Order:</label>
+                                        <div class="d-flex">
+                                            <select class="form-select" id="sortOrder">
+                                                <option value="asc">Ascending</option>
+                                                <option value="desc" selected>Descending</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="stateSelectionContainer" class="mb-4" style="display: none;">
+                                    <div class="card">
+                                        <div class="card-header bg-green">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <h6 class="mb-0">Select States to Display</h6>
+                                                <div>
+                                                    <button id="selectAllStates" class="btn btn-sm btn-outline-light me-2">Select All</button>
+                                                    <button id="deselectAllStates" class="btn btn-sm btn-outline-light">Deselect All</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body" style="max-height: 200px; overflow-y: auto;">
+                                            <div class="row" id="stateCheckboxes"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="chartContainer" class="chart-container" style="position: relative; height:400px;">
+                                    <canvas id="interactiveChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- section 7 interview -->
+        <section id="section7" class="bg-grey py-5 justify-content-center">
+            <div class="container-fluid">
+                <div class="row justify-content-center section-title">
+                    <div class="col-auto">
+                        <div class="title">
+                            <span class="material-icons">record_voice_over</span>
+                            Monica Adams: Voices from the Front Lines
+                        </div>
+                        <p class="paragraph text-center mt-3">Food Insecurity Researcher, Broome County Food Council</p>
+                    </div>
+                    <div class="row justify-content-center my-4 mb-8">
+                        <div>
+                            <video width="100%" height="720" controls>
+                                <source src="./data/Monica%20Adams%20Interview.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-lg-4">
+                        <div class="text-center">
+                            <h3><i class="material-icons small">info</i> Causes and Definitions</h3>
+                        </div>
+                        <div class="card bg-green p-4 mb-4">
+                            <ul class="mb-0">
+                                <li>
+                                    <strong>Low wages and transportation barriers</strong>
+                                    <blockquote>
+                                        “Some of the most significant causes are low wages, low income, there's not a lot of jobs here that pay higher salaries, so obviously income is a factor [and] employment challenges go along with that: limited transportation, availability of grocery stores like the distance to get to them.”
+                                    </blockquote>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card bg-green p-4">
+                            <ul>
+                                <li>
+                                    <strong>Moving from 'food desert' to 'food apartheid'</strong>
+                                    <blockquote>
+                                        “If you think about a desert, this is more like an ecosystem and food deserts just aren't these naturally occurring things that happened. These things are human‑made, our policies and how we make decisions... Food apartheid is more reflective of what's happening. It's an oppressive system that is restricting access to food because of bureaucracy... [and] how we design cities.”
+                                    </blockquote>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4">
+                        <div class="text-center">
+                            <h3><i class="material-icons small">help</i> Local Solutions and Challenges</h3>
+                        </div>
+                        <div class="card bg-green p-4 mb-4">
+                            <ul class="mb-0">
+                                <li>
+                                    <strong>COVID collaboration: Broome County Food Council</strong>
+                                    <blockquote>
+                                        “...COVID hit so hard, so fast, and really changed the dynamic of the food assistance programs. It... forced people to start talking to each other, which was a good thing because out of this came the Broome County Food Council.”
+                                    </blockquote>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card bg-green p-4 mb-4">
+                            <ul>
+                                <li>
+                                    <strong>Greater Good Grocery mobile market</strong>
+                                    <blockquote>
+                                        “...There's a grocery store here called the Greater Good Grocery Store. It's a nonprofit brick and mortar store that started a mobile food market... It's a school bus that's been turned into a little miniature grocery store that drives around the county to these areas where we have food apartheid and it sells food, so it has [fresh produce, refrigerated, and frozen items] and that's had an immediate impact because people who did not have access to grocery stores, now I have this bus that pulls up once a week [where] they can jump on and get food and the food is affordable.”
+                                    </blockquote>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="text-center">
+                            <h3><i class="material-icons small">group</i> Populations and Policy Impacts</h3>
+                        </div>
+                        <div class="card bg-green p-4 mb-4">
+                            <ul class="mb-0">
+                                <li>
+                                    <strong>Affected populations</strong>
+                                    <blockquote>
+                                        “Most obviously people with low incomes, but within that population, women and children have the highest rates of food insecurity in the country and in the area... Women than men to live in poverty and food insecurity and poverty are connected. Anybody who has the minority identity, racial, ethnic minorities, LGBTQ community, people with disabilities, they have higher rates of food insecurity compared to other people with low income... Another population would be the elderly and that's a combination of income and issues like mobility access because it's different for us even if we live on a bus line to just jump on the bus and run to the store.”
+                                    </blockquote>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card bg-green p-4 mb-4">
+                            <ul>
+                                <li>
+                                    <strong>Trade‑offs between food and other expenses</strong>
+                                    <blockquote>
+                                        “ It's this constant. Struggle of having to prioritize: Do I eat? Do I sit in the dark? But If I choose to buy the food, but the electricity gets cut off. I can't cook the food. I can't store the food in my refrigerator because I have no power. So some bills are always going to trump food because it just doesn't make sense to buy food if you can't cook it or store it. Similarly, if I don't pay my rent and I get evicted, where am I am [going to] keep this food. So yes, absolutely, housing costs, utility bills, these things impact food insecurity. Health and food insecurity are so intertwined.”
+                                    </blockquote>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div></div>
+        </section>
+
+
+
+
+        <!-- section 8 conclusions -->
+        <section id="section8" class="bg-green justify-content-center">
+            <div class="container-fluid">
+                <div class="row justify-content-center section-title">
+                    <div class="col-auto">
+                        <div class="title"><span class="material-icons">summarize</span> Conclusions &amp; Evidence Summary</div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <!-- model -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card bg-grey p-4 h-100">
+                            <h5><i class="material-icons small">developer_board</i> Model Results</h5>
+                            <p class="paragraph mb-0">We compared a logistic regression model to a deep neural network. The logistic regression (with predictors like poverty, unemployment, race, SNAP eligibility, and child insecurity) underperformed, while the deep learning model (4-layer neural network, trained with fastai on tabular data) reached about <strong>93% accuracy</strong>. Important features driving the model were race/ethnicity (food insecurity rates by group), household income/SNAP thresholds, and child food insecurity levels.</p>
+                        </div>
+                    </div>
+                    <!-- charts -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card bg-grey p-4 h-100">
+                            <h5><i class="material-icons small">query_stats</i> Chart Insights</h5>
+                            <p class="paragraph mb-0">State-level charts reveal stark disparities: Black and Hispanic communities face much higher food insecurity rates than white communities. Children’s food insecurity is notably severe (often above 30%). Food costs have surged (~30% increase in average meal price from 2019 to 2022). Time-trend analysis shows that by 2022 most counties had food insecurity levels exceeding pre-pandemic.</p>
+                        </div>
+                    </div>
+                    <!-- interview -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card bg-grey p-4 h-100">
+                            <h5><i class="material-icons small">forum</i> Interview Reflections</h5>
+                            <p class="paragraph mb-0">Monica Adams highlights systemic barriers: she cites persistent low wages and neighborhood “food deserts” (or food apartheid) due to historical planning. Local solutions include the Broome County Food Council’s food access plan and a nonprofit grocery’s <strong>mobile market</strong> (a bus delivering affordable fresh food to underserved areas). Adams also recounts families’ difficult trade-offs like choosing between buying food or paying the electric bill, or between healthy food and necessary medicine.</p>
+                        </div>
+                    </div>
+                    <!-- data limitations -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card bg-grey p-4 h-100">
+                            <h5><i class="material-icons small">error_outline</i> Data Limitations</h5>
+                            <p class="paragraph mb-0">Our analysis relies on public data with known gaps. Food access data uses older census/ACS estimates (e.g. 2010 Census, 2014–2018 ACS) and simple distance metrics. We work at the county level for the ML model, which can mask within-county variation, and we do not capture informal food sources (like community pantries). These limitations mean some recent changes or local resources may be underrepresented in our findings.</p>
+                        </div>
+                    </div>
+                    <!-- policy implications -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card bg-grey p-4 h-100">
+                            <h5><i class="material-icons small">gavel</i> Policy Implications</h5>
+                            <p class="paragraph mb-0">Policies should target the identified needs: for example, expanding SNAP benefits and child nutrition programs helps struggling families. Efforts must address root causes like housing affordability and healthcare costs to improve food security. Supporting local initiatives (food banks, mobile markets) and focusing resources on high-risk counties will ensure aid reaches the communities most in need.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- section 9 resources -->
+        <section id="section9" class="bg-green justify-content-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="title text-center"><span class="material-icons">menu_book</span> Resources & References</div>
+                        <p class="paragraph text-center mt-3">Learn more about food insecurity and how you can help address this critical issue.</p>
+
+                        <div class="row mt-5">
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100 shadow">
+                                    <div class="card-header bg-green">
+                                        <h5 class="mb-0">Data Sources & Research</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <strong>Feeding America</strong>
+                                                <p class="mb-0 small">Annual Map the Meal Gap studies and county-level food insecurity data</p>
+                                                <a href="https://www.feedingamerica.org/research" target="_blank" class="btn btn-sm btn-outline-primary mt-2">Visit Website</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <strong>USDA Economic Research Service</strong>
+                                                <p class="mb-0 small">Federal data on food security, SNAP, and nutrition assistance programs</p>
+                                                <a href="https://www.ers.usda.gov/topics/food-nutrition-assistance/" target="_blank" class="btn btn-sm btn-outline-primary mt-2">Visit Website</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <strong>Food Research & Action Center</strong>
+                                                <p class="mb-0 small">Research on hunger, nutrition, and poverty in the United States</p>
+                                                <a href="https://frac.org/" target="_blank" class="btn btn-sm btn-outline-primary mt-2">Visit Website</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <strong>Children's HealthWatch</strong>
+                                                <p class="mb-0 small">Research on food insecurity's impact on child health and development</p>
+                                                <a href="https://childrenshealthwatch.org/" target="_blank" class="btn btn-sm btn-outline-primary mt-2">Visit Website</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100 shadow">
+                                    <div class="card-header bg-grey">
+                                        <h5 class="mb-0">Get Involved</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="border-bottom pb-2 mb-3">Find Help</h6>
+                                        <ul class="mb-4">
+                                            <li>SNAP Benefits Application: <a href="https://www.fns.usda.gov/snap/recipient/eligibility" target="_blank">Apply Here</a></li>
+                                            <li>Find a Food Bank: <a href="https://www.feedingamerica.org/find-your-local-foodbank" target="_blank">Locate Near You</a></li>
+                                            <li>WIC Program: <a href="https://www.fns.usda.gov/wic" target="_blank">Information & Eligibility</a></li>
+                                        </ul>
+
+                                        <h6 class="border-bottom pb-2 mb-3">Take Action</h6>
+                                        <ul>
+                                            <li>Volunteer at your local food bank or meal program</li>
+                                            <li>Donate to hunger relief organizations</li>
+                                            <li>Advocate for policy changes at local, state, and federal levels</li>
+                                            <li>Organize food drives in your community</li>
+                                            <li>Share this research to raise awareness</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <!-- footer -->
+    <footer id='footer' class="bg-dark text-center justify-content-center d-flex py-4">
+        <div class="container">
+            <p class="mb-1">© 2025 Luciano Pomara, Isabella Bellitti, Matthew Ebenhoe, Kaitlyn Matthews</p>
+            <p class="mb-0 small">Made in/for DIDA-280 and DIDA-425</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="animations.js"></script>
+</body>
+
+</html>
