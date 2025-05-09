@@ -17,7 +17,9 @@
 
 
 html, body{
-    overscroll-behavior: contain;
+    overscroll-behavior: contain
+    background-color: #7CED71;
+    color: black;
 }
 
 body {
